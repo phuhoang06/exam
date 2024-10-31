@@ -15,7 +15,7 @@ let danhSachNhanVien = [
     new NhanVien(3, "Lê Văn C", "1988-03-03", "Đà Nẵng", 7000000, "Giám đốc"),
 ];
 
-// Hàm tạo nút hành động
+
 function taoNutHanhDong(id) {
     return `
         <button onclick="themNhanVien()">Thêm</button>
@@ -23,7 +23,7 @@ function taoNutHanhDong(id) {
     `;
 }
 
-// Hàm tạo hàng cho mỗi nhân viên
+
 function taoHangNhanVien(nhanVien) {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -38,14 +38,14 @@ function taoHangNhanVien(nhanVien) {
     return row;
 }
 
-// Hàm hiển thị danh sách nhân viên
+
 function hienThiDanhSachNhanVien() {
     const tableBody = document.querySelector("#employeeTable tbody");
     tableBody.innerHTML = "";
     danhSachNhanVien.forEach(nhanVien => tableBody.appendChild(taoHangNhanVien(nhanVien)));
 }
 
-// Hàm thêm nhân viên
+
 function themNhanVien() {
     const ten = prompt("Nhập tên:");
     const ngaysinh = prompt("Nhập ngày sinh (YYYY-MM-DD):");
@@ -63,11 +63,11 @@ function themNhanVien() {
     }
 }
 
-// Hàm xóa nhân viên
+
 function xoaNhanVien(id) {
     danhSachNhanVien = danhSachNhanVien.filter(nv => nv.id !== id);
     hienThiDanhSachNhanVien();
 }
 
-// Khởi tạo hiển thị danh sách nhân viên
+
 document.addEventListener("DOMContentLoaded", hienThiDanhSachNhanVien);
