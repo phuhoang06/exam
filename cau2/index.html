@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function nhap_so_nguyen_duong() {
+        let number;
+        do {
+            number = +prompt("Vui lòng nhập một số nguyên dương:");
+        } while (isNaN(number) || number <= 0 || !Number.isInteger(number));
+        return number;
+    }
+    function ktra_so_hh(num) {
+        if (num <= 1) return false;
+        let sum = 1;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                sum += i;
+                if (i !== num / i) {
+                    sum += num / i;
+                }
+            }
+        }
+        return sum === num;
+    }
+    let number = nhap_so_nguyen_duong();
+    document.write(ktra_so_hh(number) ? "true" : "false");
+
+</script>
 </body>
 </html>

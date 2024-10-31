@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function kiemTraDinhDangNgay(dauVao) {
+        return /^(0[1-9]|1[0-2])\/\d{4}$/.test(dauVao);
+    }
+
+    function soNgayTrongThang(thang, nam) {
+        if (thang === 2) return namNhuan(nam) ? 29 : 28;
+        return [4, 6, 9, 11].includes(thang) ? 30 : 31;
+    }
+
+    function namNhuan(nam) {
+        return (nam % 4 === 0 && nam % 100 !== 0) || (nam % 400 === 0);
+    }
+
+    let dauVao = prompt("Nhap thang va nam theo dinh dang MM/yyyy:");
+    if (kiemTraDinhDangNgay(dauVao)) {
+        let [thang, nam] = dauVao.split("/").map(Number);
+        document.write(`Thang ${thang}/${nam} co ${soNgayTrongThang(thang, nam)} ngay.`);
+    } else {
+        document.write("Dinh dang nhap khong dung. Vui long nhap lai theo dinh dang MM/yyyy.");
+    }
+</script>
 </body>
 </html>
